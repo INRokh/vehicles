@@ -10,6 +10,7 @@ import javax.persistence.Id;
 @Entity
 public class Price {
     @Id
+    private Long id;
     private Long vehicleId;
 
     private String currency;
@@ -19,10 +20,19 @@ public class Price {
     public Price() {
     }
 
-    public Price(String currency, BigDecimal price, Long vehicleId) {
+    public Price(Long id, String currency, BigDecimal price, Long vehicleId) {
+        this.id = id;
         this.currency = currency;
         this.price = price;
         this.vehicleId = vehicleId;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getCurrency() {
